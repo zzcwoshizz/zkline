@@ -51,9 +51,15 @@ export default function setOption(option = {}) {
             symbol: option.symbol || this.option.symbol,
             colors: option.colors || this.option.colors,
             depth: option.depth || this.option.depth,
-            timelineVisible: option.timelineVisible === undefined ? this.option.timelineVisible : option.timelineVisible,
-            showDepth: option.showDepth === undefined ? this.option.showDepth : option.showDepth,
-            intl: option.intl === undefined ? this.option.intl : option.intl,
+            timelineVisible:
+                option.timelineVisible === undefined
+                    ? this.option.timelineVisible
+                    : option.timelineVisible,
+            showDepth:
+                option.showDepth === undefined
+                    ? this.option.showDepth
+                    : option.showDepth,
+            intl: option.intl === undefined ? this.option.intl : option.intl
         };
         const lastRange = this.state.range;
         init.call(this, option);
@@ -62,7 +68,10 @@ export default function setOption(option = {}) {
             lastSymbol === this.option.symbol
         ) {
             if (lastRange[1] === lastData.length) {
-                this.state.range = [lastRange[0] + data.length - lastData.length, data.length];
+                this.state.range = [
+                    lastRange[0] + data.length - lastData.length,
+                    data.length
+                ];
             } else {
                 this.state.range = lastRange;
             }
@@ -87,9 +96,10 @@ export default function setOption(option = {}) {
             symbol: option.symbol,
             colors: option.colors || {},
             depth: option.depth || { asks: [], bids: [] },
-            timelineVisible: option.timelineVisible === undefined ? true : false,
+            timelineVisible:
+                option.timelineVisible === undefined ? true : false,
             showDepth: option.showDepth === undefined ? false : true,
-            intl: option.intl === undefined ? 'en' : option.intl,
+            intl: option.intl === undefined ? 'en' : option.intl
         };
 
         init.call(this, option);
@@ -111,40 +121,87 @@ function init() {
         splitLine: colors.splitLine || (isDarkTheme ? '#33434b' : '#c2cacf'),
         lightColor: colors.lightColor || (isDarkTheme ? '#ddd' : '#666'),
         textColor: colors.textColor || (isDarkTheme ? '#878f94' : '#333'),
-        currentTextColor: colors.currentTextColor || (isDarkTheme ? '#cad8e0' : '#000'),
+        currentTextColor:
+            colors.currentTextColor || (isDarkTheme ? '#cad8e0' : '#000'),
         hairLine: colors.hairLine || (isDarkTheme ? '#33434b' : '#d3dbe0'),
         lineColor: colors.lineColor || (isDarkTheme ? '#ccc' : '#666'),
-        lineHilightColor: colors.lineHilightColor || (isDarkTheme ? '#fff' : '#000'),
-        currentPriceColor: colors.currentPriceColor || (isDarkTheme ? '#132733' : '#132733'),
-        greenColor: colors.greenColor || (isDarkTheme ? '#66d430' : '#68d12c'),
-        redColor: colors.redColor || (isDarkTheme ? '#d11e37' : '#d11d38'),
-        greenColorBackground: colors.greenColorBackground || (isDarkTheme ? 'rgba(102,212,48,0.3)' : 'rgba(104,209,44,0.3)'),
-        greenColorBackground1: colors.greenColorBackground1 || (isDarkTheme ? 'rgba(102,212,48,0.05)' : 'rgba(104,209,44,0.05)'),
-        redColorBackground: colors.redColorBackground || (isDarkTheme ? 'rgba(209,30,55,0.3)' : 'rgba(209,29,56,0.3)'),
-        redColorBackground1: colors.redColorBackground1 || (isDarkTheme ? 'rgba(209,30,55,0.05)' : 'rgba(209,29,56,0.05)'),
-        ma30Color: colors.ma30Color || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        ma7Color: colors.ma7Color || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        macdColor: colors.macdColor || (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)'),
-        kColor: colors.kColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        dColor: colors.dColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        jColor: colors.jColor || (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)'),
-        dmaDifColor: colors.dmaDifColor || (isDarkTheme ? '#d1d1d1' : '#69d2b7'),
-        dmaDifmaColor: colors.dmaDifmaColor || (isDarkTheme ? '#eae348' : '#f6bc33'),
+        lineHilightColor:
+            colors.lineHilightColor || (isDarkTheme ? '#fff' : '#000'),
+        currentPriceColor:
+            colors.currentPriceColor || (isDarkTheme ? '#132733' : '#132733'),
+        greenColor: colors.greenColor || (isDarkTheme ? '#d11e37' : '#d11d38'),
+        redColor: colors.redColor || (isDarkTheme ? '#66d430' : '#68d12c'),
+        greenColorBackground:
+            colors.greenColorBackground ||
+            (isDarkTheme ? 'rgba(102,212,48,0.3)' : 'rgba(104,209,44,0.3)'),
+        greenColorBackground1:
+            colors.greenColorBackground1 ||
+            (isDarkTheme ? 'rgba(102,212,48,0.05)' : 'rgba(104,209,44,0.05)'),
+        redColorBackground:
+            colors.redColorBackground ||
+            (isDarkTheme ? 'rgba(209,30,55,0.3)' : 'rgba(209,29,56,0.3)'),
+        redColorBackground1:
+            colors.redColorBackground1 ||
+            (isDarkTheme ? 'rgba(209,30,55,0.05)' : 'rgba(209,29,56,0.05)'),
+        ma30Color:
+            colors.ma30Color ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        ma7Color:
+            colors.ma7Color ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        macdColor:
+            colors.macdColor ||
+            (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)'),
+        kColor:
+            colors.kColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        dColor:
+            colors.dColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        jColor:
+            colors.jColor ||
+            (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)'),
+        dmaDifColor:
+            colors.dmaDifColor || (isDarkTheme ? '#d1d1d1' : '#69d2b7'),
+        dmaDifmaColor:
+            colors.dmaDifmaColor || (isDarkTheme ? '#eae348' : '#f6bc33'),
         pdiColor: colors.pdiColor || (isDarkTheme ? '#d1d1d1' : '#69d2b7'),
         mdiColor: colors.mdiColor || (isDarkTheme ? '#eae348' : '#f6bc33'),
         adxColor: colors.adxColor || (isDarkTheme ? '#db18f1' : '#dc65bf'),
         adxrColor: colors.adxrColor || (isDarkTheme ? '#72aff0' : '#3d7dc9'),
-        matrixColor: colors.matrixColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        trixColor: colors.trixColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        arColor: colors.arColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        brColor: colors.brColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        vrColor: colors.vrColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        mavrColor: colors.mavrColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        obvColor: colors.obvColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        maobvColor: colors.maobvColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        rsi6Color: colors.kColor || (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
-        rsi12Color: colors.dColor || (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
-        rsi24Color: colors.jColor || (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)'),
+        matrixColor:
+            colors.matrixColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        trixColor:
+            colors.trixColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        arColor:
+            colors.arColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        brColor:
+            colors.brColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        vrColor:
+            colors.vrColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        mavrColor:
+            colors.mavrColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        obvColor:
+            colors.obvColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        maobvColor:
+            colors.maobvColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        rsi6Color:
+            colors.kColor ||
+            (isDarkTheme ? 'rgb(234, 177, 103)' : 'rgb(234, 177, 103)'),
+        rsi12Color:
+            colors.dColor ||
+            (isDarkTheme ? 'rgb(166, 206, 227)' : 'rgb(59, 187, 59)'),
+        rsi24Color:
+            colors.jColor ||
+            (isDarkTheme ? 'rgb(208, 146, 209)' : 'rgb(208, 146, 209)')
     };
 
     this.ctx = this.canvas.getContext('2d');
@@ -220,7 +277,6 @@ function init() {
     this.lineCache = this.lineCache || null;
     this.mousePos = {};
 
-
     if (this.option.intl === 'en') {
         this.text = {
             time: 'time',
@@ -228,8 +284,8 @@ function init() {
             hi: 'H',
             lo: 'L',
             close: 'C',
-            volume: 'VOLUME',
-        }
+            volume: 'VOLUME'
+        };
     } else {
         this.text = {
             time: '时间',
@@ -237,7 +293,7 @@ function init() {
             hi: '高',
             lo: '低',
             close: '收',
-            volume: '量',
-        }
+            volume: '量'
+        };
     }
 }
