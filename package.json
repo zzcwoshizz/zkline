@@ -1,0 +1,25 @@
+{
+    "name": "zkline",
+    "version": "1.0.0",
+    "description": "k线插件，包含深度图",
+    "main": "index.js",
+    "scripts": {
+        "build": "./node_modules/.bin/babel --watch src -d lib"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zzcwoshizz/zkline.git"
+    },
+    "keywords": [
+        "kline，depth，k线，深度，区块链，比特币"
+    ],
+    "author": "zhichao.zhang <zzcwoshizz1@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/zzcwoshizz/zkline/issues"
+    },
+    "homepage": "https://github.com/zzcwoshizz/zkline#readme",
+    "devDependencies": {
+        "babel-cli": "^6.26.0"
+    }
+}
