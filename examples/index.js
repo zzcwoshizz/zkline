@@ -1,4 +1,4 @@
-import { KLine, Depth } from '../lib/index.js';
+import { KLine, Depth } from '../src/index.js';
 
 var bodyWidth = document.body.clientWidth;
 var bodyHeight = document.body.clientHeight;
