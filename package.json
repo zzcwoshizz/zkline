@@ -1,5 +1,5 @@
 {
-    "name": "zkline",
+    "name": "trade-kline",
     "version": "1.0.0",
     "description": "k线插件，包含深度图",
     "main": "dist/zkline.umd.js",
@@ -15,7 +15,7 @@
         "url": "git+https://github.com/zzcwoshizz/zkline.git"
     },
     "keywords": [
-        "kline，depth，k线，深度，区块链，比特币"
+        "kline,depth,k线,深度,区块链,比特币,canvas"
     ],
     "author": "zhichao.zhang <zzcwoshizz1@gmail.com>",
     "license": "MIT",
