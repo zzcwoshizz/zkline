@@ -28,8 +28,11 @@ import ParallelLine from './tools/ParallelLine';
 export function KLine(canvas, overCanvas, option) {
     this.canvas = canvas;
     this.overCanvas = overCanvas;
-    if (canvas.width !== overCanvas.width || canvas.height !== overCanvas.height) {
-        console.log('Two canvas\'s width and height must equal');
+    if (
+        canvas.width !== overCanvas.width ||
+        canvas.height !== overCanvas.height
+    ) {
+        console.log("Two canvas's width and height must equal");
         return;
     }
     this.dpr = canvas.width / canvas.getBoundingClientRect().width;
@@ -58,18 +61,41 @@ KLine.prototype = {
     canDraw,
     computAxis,
     forceUpdate: function(canvasCanDraw, overCanvasCanDraw) {
-        this.force = [canvasCanDraw || this.force[0], overCanvasCanDraw || this.force[1]];
+        this.force = [
+            canvasCanDraw || this.force[0],
+            overCanvasCanDraw || this.force[1]
+        ];
     },
     string,
     beginDrawLine: function(type) {
         if (type === 'parallelsegment') {
-            this.lineCache = new ParallelSegment(this.overCtx, this.colors, this, 2);
+            this.lineCache = new ParallelSegment(
+                this.overCtx,
+                this.colors,
+                this,
+                2
+            );
         } else if (type === 'horizontalline') {
-            this.lineCache = new HorizontalLine(this.overCtx, this.colors, this, 1);
+            this.lineCache = new HorizontalLine(
+                this.overCtx,
+                this.colors,
+                this,
+                1
+            );
         } else if (type === 'horizontalbeam') {
-            this.lineCache = new HorizontalBeam(this.overCtx, this.colors, this, 2);
+            this.lineCache = new HorizontalBeam(
+                this.overCtx,
+                this.colors,
+                this,
+                2
+            );
         } else if (type === 'verticalline') {
-            this.lineCache = new VerticalLine(this.overCtx, this.colors, this, 1);
+            this.lineCache = new VerticalLine(
+                this.overCtx,
+                this.colors,
+                this,
+                1
+            );
         } else if (type === 'priceline') {
             this.lineCache = new PriceLine(this.overCtx, this.colors, this, 1);
         } else if (type === 'segment') {
@@ -83,7 +109,12 @@ KLine.prototype = {
         } else if (type === 'fibonacci') {
             this.lineCache = new Fibonacci(this.overCtx, this.colors, this, 2);
         } else if (type === 'parallelline') {
-            this.lineCache = new ParallelLine(this.overCtx, this.colors, this, 3);
+            this.lineCache = new ParallelLine(
+                this.overCtx,
+                this.colors,
+                this,
+                3
+            );
         }
     },
     clearLine: function(index) {
@@ -166,9 +197,19 @@ function isInLineView(pos) {
     const { x, y } = pos;
     const view1 = this.mainView;
     const view2 = this.aidView;
-    if (x >= view1.x && x < view1.x + view1.w && y >= view1.y && y < view1.y + view1.h) {
+    if (
+        x >= view1.x &&
+        x < view1.x + view1.w &&
+        y >= view1.y &&
+        y < view1.y + view1.h
+    ) {
         return view1;
-    } else if (x >= view2.x && x < view2.x + view2.w && y >= view2.y && y < view2.y + view2.h) {
+    } else if (
+        x >= view2.x &&
+        x < view2.x + view2.w &&
+        y >= view2.y &&
+        y < view2.y + view2.h
+    ) {
         return view2;
     } else {
         return false;
@@ -178,6 +219,4 @@ function isInLineView(pos) {
 Depth.prototype.getMousePos = getMousePos;
 Depth.prototype.string = string;
 
-export {
-    Depth,
-};
+export { Depth };
